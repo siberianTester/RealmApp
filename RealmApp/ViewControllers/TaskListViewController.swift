@@ -42,8 +42,16 @@ final class TaskListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskListCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         let taskList = taskLists[indexPath.row]
+        let currentTasksCount = taskList.tasks.filter("isComplete = false").count
+        
+        if currentTasksCount == 0 {
+            content.secondaryText = "✓"
+        } else {
+            content.secondaryText = String(currentTasksCount)
+            content.image = nil
+        }
+        
         content.text = taskList.title
-        content.secondaryText = taskList.tasks.count.formatted()
         cell.contentConfiguration = content
         return cell
     }
@@ -85,6 +93,11 @@ final class TaskListViewController: UITableViewController {
     }
 
     @IBAction func sortingList(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: taskLists = taskLists.sorted(byKeyPath: "date", ascending: true)
+        default: taskLists = taskLists.sorted(byKeyPath: "title", ascending: true)
+        }
+        tableView.reloadData()
     }
     
     @objc private func addButtonPressed() {
