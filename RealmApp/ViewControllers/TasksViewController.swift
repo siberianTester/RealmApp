@@ -50,7 +50,19 @@ final class TasksViewController: UITableViewController {
         let doneTitle = !task.isComplete ? "Done" : "Undone"
         let doneAction = UIContextualAction(style: .normal, title: doneTitle) { [unowned self] _, _, isDone in
             storageManager.done(task)
-            tableView.reloadData()
+            let currentTaskIndex = IndexPath(
+                row: currentTasks.index(of: task) ?? 0,
+                section: 0
+            )
+            
+            let completedTaskIndex = IndexPath(
+                row: completedTasks.index(of: task) ?? 0,
+                section: 1
+            )
+            
+            let destinationIndexPath = indexPath.section == 0 ? completedTaskIndex : currentTaskIndex
+            tableView.moveRow(at: indexPath, to: destinationIndexPath)
+            
             isDone(true)
         }
         
@@ -107,10 +119,7 @@ extension TasksViewController {
                 style: .default
             ) { [unowned self] taskTitle, taskNote in
                 if let task, let completion {
-                    storageManager.write {
-                        task.title = taskTitle
-                        task.note = taskNote
-                    }
+                    storageManager.edit(task, to: taskTitle, withNote: taskNote)
                     completion()
                     return
                 }

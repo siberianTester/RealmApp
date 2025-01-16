@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F06C7B82D397EBB00838ABF /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C7B72D397EBB00838ABF /* Extension + UITableViewCell.swift */; };
 		1FE5D5382D37DE6600100456 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE5D5372D37DE6600100456 /* Realm */; };
 		1FE5D53A2D37DE6600100456 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE5D5392D37DE6600100456 /* RealmSwift */; };
 		A804828427103A010095A493 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804828327103A010095A493 /* DataManager.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F06C7B72D397EBB00838ABF /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
 		A804828327103A010095A493 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A804828527103A100095A493 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A804828727103BFD0095A493 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F06C7B62D397E8700838ABF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F06C7B72D397EBB00838ABF /* Extension + UITableViewCell.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A81BC31C256FED21002D9595 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		A872A10D20E9D82400ECE2BA /* RealmApp */ = {
 			isa = PBXGroup;
 			children = (
+				1F06C7B62D397E8700838ABF /* Extensions */,
 				A81BC31C256FED21002D9595 /* ViewControllers */,
 				A83F5DA129E1AEAD00F58A5F /* Factories */,
 				A8969B33270F34B700F7DED0 /* Models */,
@@ -226,6 +237,7 @@
 				A804828627103A100095A493 /* StorageManager.swift in Sources */,
 				A872A12120E9D87400ECE2BA /* TaskListViewController.swift in Sources */,
 				A872A12320E9D88E00ECE2BA /* TasksViewController.swift in Sources */,
+				1F06C7B82D397EBB00838ABF /* Extension + UITableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
